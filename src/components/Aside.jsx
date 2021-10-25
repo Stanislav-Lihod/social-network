@@ -11,6 +11,13 @@ const Aside = () =>{
         </div>
         <img src={logo} alt="logo" className="aside-profile__logo"/>
       </div>
+      <div className="aside-button">
+        <button>Write new article</button>
+      </div>
+      <div className="aside-hashtags">
+        <p>Followed hashtags</p>
+        <div className="aside-hashtags__hashtag">#work</div>
+      </div>
     </div>
   )
 }
