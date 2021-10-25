@@ -1,14 +1,14 @@
 import './App.css';
 import Aside from './components/Aside';
 import Header from './components/Header';
-import Profile from './components/Profile';
+import Wall from './components/Wall';
 
 function App() {
   return (
     <div>
       <Header />
       <div className="container">
-        <Profile />
+        <Wall />
         <Aside />  
       </div>    
     </div>
