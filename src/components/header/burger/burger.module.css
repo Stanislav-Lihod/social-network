@@ -1,0 +1,32 @@
+.burger {
+  width: 150px;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  width: 25px;
+  background: black;
+}
+
+.burger span::before {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 25px;
+  background: black;
+  transform: translateY(-8px);
+}
+
+.burger span::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 25px;
+  background: black;
+  transform: translateY(6px);
+}

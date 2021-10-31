@@ -1,0 +1,11 @@
+.container {
+  padding: 0 110px 0 30px;
+  display: flex;
+  height: 100%;
+  width: 1120px;
+  margin: 0 auto;
+  align-items: center;
+  border-left: 1px solid #F7F9FB;
+  border-right: 1px solid #F7F9FB;
+  justify-content: space-between;
+} 

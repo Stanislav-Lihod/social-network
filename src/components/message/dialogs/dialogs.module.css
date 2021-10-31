@@ -1,0 +1,27 @@
+.dialogs{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.new_message{
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input{
+  flex-grow: 1;
+  padding: 5px;
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #DBDBDC;
+  transition: .5s;
+}
+
+input:focus{  
+  transition: .5s;
+  box-shadow: 0px 0px 20px rgb(208, 208, 208);
+}

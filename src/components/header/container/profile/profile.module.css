@@ -1,0 +1,35 @@
+.profile {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.profileLogo {
+  height: 40px;
+}
+
+.profileLogo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profileText {
+  font-size: 12px;
+}
+
+.profileText__name {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.profileText__views {
+  font-weight: 300;
+  color: rgba(128, 124, 124, 1);
+}
+
+.profileText__views span {
+  font-weight: 500;
+  color: rgba(29, 144, 89, 1);
+}

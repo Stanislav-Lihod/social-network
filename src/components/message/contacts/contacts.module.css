@@ -1,0 +1,5 @@
+.contacts{
+  width: 280px;
+  border-right: 1px solid #ccc;
+  flex-shrink: 0;
+}
