@@ -1,4 +1,6 @@
 .messages{
   background: white;
   display: flex;
+  max-height: 600px;
+  overflow: hidden;
 }

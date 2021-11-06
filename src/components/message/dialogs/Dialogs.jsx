@@ -1,7 +1,15 @@
+import React from "react"
+import { addNewMessageActionCreate, updateMessageTextActionCreate } from "../../../redux/reducerMessagePage"
 import Dialog from "./dialog/Dialog"
 import stl from "./dialogs.module.css"
 
-const Dialogs = () => {
+let newMessage = React.createRef()
+
+const Dialogs = (props) => {
+  const updateMessageText = () =>{props.despatch(updateMessageTextActionCreate(newMessage.current.value))}
+  const addMessage = () => {props.despatch(addNewMessageActionCreate())}
+
+  const messages = props.messages.messages.map(el => <Dialog name="Stanislav Lihodievski" date="31 Oct" message={el}/>)
   return (
     <div className={stl.dialogs}>
       <div className={stl.addons}>
@@ -11,13 +19,13 @@ const Dialogs = () => {
         <div className={stl.search}></div>
         <div className={stl.settings}></div>
       </div>
-      <Dialog name="Michail Issacow" date="31 Oct" message="On voluptate velit esse cillum dolore eu fugiat nulla"/>
-      <Dialog name="Stanislav Lihodievski" date="31 Oct" message="Sed ut perspiciatis unde omnis iste natus error sit voluptatem aSed ut perspiciatis unde omnis iste natus error sit voluptatem aSed ut perspiciatis unde omnis iste natus error sit voluptatem a"/>
-      <div className={stl.new_message}>
-        <div className={stl.add_docs}></div>
-        <input type="text" />
-        <div className={stl.add_photo}></div>
-        <div className={stl.add_voice}></div>
+      {messages}
+      <div className={stl.newMessage}>
+        <div className={stl.addDocs}></div>
+        <input type="text" ref={newMessage} onKeyDown={e => {if (e.key === "Enter") addMessage()}} onChange={()=> updateMessageText()} value={props.messages.messageText}/>
+        <button onClick={addMessage}>Отправить</button>
+        <div className={stl.addPhoto}></div>
+        <div className={stl.addVoice}></div>
       </div>
     </div>
   )

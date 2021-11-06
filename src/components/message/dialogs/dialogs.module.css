@@ -6,7 +6,7 @@
   justify-content: flex-end;
 }
 
-.new_message{
+.newMessage{
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -19,9 +19,16 @@ input{
   border-radius: 4px;
   border: 1px solid #DBDBDC;
   transition: .5s;
+  margin-right: 20px;
 }
 
 input:focus{  
   transition: .5s;
   box-shadow: 0px 0px 20px rgb(208, 208, 208);
+}
+
+.newMessage button {
+  width: 150px;
+  padding: 8px;
+  font-size: 13px;
 }

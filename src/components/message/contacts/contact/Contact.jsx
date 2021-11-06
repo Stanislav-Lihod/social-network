@@ -3,8 +3,10 @@ import logo from "../../../../img/7h_xRpycDaI.jpg"
 import { NavLink } from "react-router-dom"
 
 const Contact = (props) => {
+  
+  const path=`/message/${props.url}`
   return (
-    <NavLink to={props.url} activeClassName={stl.active} className={stl.contact}>
+    <NavLink to={path} activeClassName={stl.active} className={stl.contact}>
       <div className={stl.logo}><img src={logo}/></div>
       <div className={stl.inner}>
         <div className={stl.info}>

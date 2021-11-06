@@ -1,0 +1,88 @@
+.postItem {
+  background: white;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.post {
+  position: relative;
+  padding: 15px 30px 5px;
+  border-bottom: 1px solid #F4F4F4;
+  border-top: 1px solid #F4F4F4;
+  max-height: 250px;
+  overflow: hidden;
+}
+
+.postProfile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.postProfile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.postProfile__name {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.postProfile__prof {
+  font-size: 12px;
+}
+
+.postText {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
+
+.postMore {
+  position: absolute;
+  text-transform: uppercase;
+  color: #0275B1;
+  font-size: 13px;
+  font-weight: 500;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding-left: 30px;
+  height: 100px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 1) 63%);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 15px;
+}
+
+.postMore span{  
+  cursor: pointer;
+}
+
+.bottomButton{
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 15px;
+}
+
+.bottomButton i{
+  margin-right: 10px;
+  color: #0275B1;
+  font-size: 16px;
+}
+
+.bottomButton__assesments{
+  display: flex;
+}
+
+.bottomButton__share{
+  padding: 10px 30px;
+  border-left: 1px solid #F4F4F4;
+  text-transform: uppercase;
+}
