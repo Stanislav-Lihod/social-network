@@ -105,8 +105,8 @@ let store = {
   subscribe(observer) {this._callSubscribe = observer },
 
   despatch(action) {
-    reducerMessagePage(this._state.messagePage, action)
-    redicerWallPage(this._state.wallPage, action)    
+    this._state.messagePage = reducerMessagePage(this._state.messagePage, action)
+    this._state.wallPage = redicerWallPage(this._state.wallPage, action)    
     this._callSubscribe(this._state)
   }
 }
