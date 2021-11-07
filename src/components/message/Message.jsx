@@ -1,12 +1,12 @@
 import Contacts from "./contacts/Contacts"
-import Dialogs from "./dialogs/Dialogs"
 import stl from "./message.module.css"
+import DialogsContainer from "./dialogs/DialogsContainer"
 
 const Message = (props) => {  
   return (
     <div className={stl.messages}>
       <Contacts data={props.state.contacts}/>
-      <Dialogs messages={props.state} despatch={props.despatch}/>
+      <DialogsContainer store={props}/>
     </div>
   )
 }
