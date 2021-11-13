@@ -1,14 +1,12 @@
 import Link from "./link/Link";
 import stl from "./menu.module.css";
 
-const Menu = () => {
+const Menu = (props) => {
+  const menuLink = props.links.map( el => <Link key={el.id} name={el.name} path={el.path} logo={el.logo}/>)
+
   return (
     <div className={stl.links}>
-     <Link name="feed" path="/wall"/>
-     <Link name="network" path="/network"/>
-     <Link name="jobs" path="/jobs"/>
-     <Link name="chat" path="/message"/>
-     <Link name="notises" path="/notises"/>
+     {menuLink}
     </div>
   )
 }

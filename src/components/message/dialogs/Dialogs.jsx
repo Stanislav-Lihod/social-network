@@ -8,7 +8,7 @@ const Dialogs = (props) => {
   const onUpdateMessageText = () => props.updateMessageText(newMessage.current.value)
   const onAddMessage = () => props.addNewMessage()
 
-  const messages = props.messages.map(el => <Dialog name="Stanislav Lihodievski" date="31 Oct" message={el}/>)
+  const messages = props.messages.map(el => <Dialog name="Stanislav Lihodievski" date="31 Oct" key={el.id} message={el}/>)
   return (
     <div className={stl.dialogs}>
       <div className={stl.addons}>

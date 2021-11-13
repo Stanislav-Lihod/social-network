@@ -6,7 +6,7 @@ const NewPost = (props) => {
   const newPost = React.createRef()
 
   const onAddNewPost = () => props.addNewPost()
-  const updateValue = () => props.updateAddPostValue(newPost.current.value)
+  const updateValue = () => props.updateValue(newPost.current.value)
 
   return (
     <div className={stl.newPost}>
