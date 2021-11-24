@@ -6,7 +6,7 @@ import Message from './components/message/Message';
 import { Route } from 'react-router-dom'
 import Network from './components/network/Network';
 
-function App(props) {
+function App() {
   return (
       <div>
         <Header />

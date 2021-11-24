@@ -1,45 +1,9 @@
-import logo1 from '../img/users/1.jpg';
-import logo2 from '../img/users/2.jpg';
-import logo3 from '../img/users/3.jpg';
-import logo4 from '../img/users/4.jpg';
-import bgLogo from '../img/bg-profile.png';
-
 const FOLLOWED = 'FOLLOWED',
-  UNFOLLOWED = 'UNFOLLOWED'
+  UNFOLLOWED = 'UNFOLLOWED',
+  SET_USERS = 'SET_USERS'
 
 const initialState = {
-  users: [{
-      id: 1,
-      name: "Ihar Siatkouski",
-      prof: "Front-end Developer",
-      logo: logo1,
-      bg: bgLogo,
-      followed: true,
-    },
-    {
-      id: 2,
-      name: "Natalie Tolstaya",
-      prof: "Account/Project Manager",
-      logo: logo2,
-      bg: bgLogo,
-      followed: true,
-    },
-    {
-      id: 3,
-      name: "Alisa Tarnovskaya",
-      prof: "Front-end Developer",
-      logo: logo3,
-      bg: bgLogo,
-      followed: false,
-    }, {
-      id: 4,
-      name: "Kate Zaprudskaya",
-      prof: "Project Manager/Account Manager",
-      logo: logo4,
-      bg: bgLogo,
-      followed: true,
-    },
-  ]
+  users: []
 }
 
 const reducerNetwork = (state = initialState, action) => {
@@ -57,25 +21,33 @@ const reducerNetwork = (state = initialState, action) => {
           return user
         })
       }
-      case UNFOLLOWED:
-        return {
-          ...state,
-          users: state.users.map(user => {
-            if (user.id === action.userid) {
-              return {
-                ...user,
-                followed: true
-              }
+    case UNFOLLOWED:
+      return {
+        ...state,
+        users: state.users.map(user => {
+          if (user.id === action.userid) {
+            return {
+              ...user,
+              followed: true
             }
-            return user
-          })
-        }
-        default:
-          return state
+          }
+          return user
+        })
+      }
+    case SET_USERS:
+      return{
+        ...state,
+        users: [...action.users]
+      }
+    default:
+      return state
   }
 }
 
-
+export const setUsers = (users) => ({
+  type: SET_USERS,
+  users
+})
 
 export const followedAC = (userid) => ({
   type: FOLLOWED,
