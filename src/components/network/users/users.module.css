@@ -5,3 +5,14 @@
   padding: 20px;
   justify-content: space-between;
 }
+
+span{
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 10px 20px;
+}
+
+span.active{
+  font-weight: 900;
+  font-size: 18px;
+}
