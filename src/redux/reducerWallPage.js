@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST',
-  UPDATE_ADD_POST_VALUE = 'UPDATE-ADD-POST-VALUE'
+  UPDATE_ADD_POST_VALUE = 'UPDATE-ADD-POST-VALUE',
+  SET_USER_PROFILE = 'SET_USER_PROFILE'
 
 const initialState = {
   posts: [{
@@ -27,7 +28,8 @@ const initialState = {
     commentValue: 50
   },
   ],
-  postAddValue: ''
+  postAddValue: '',
+  userProfile: null
 }
 
 const redicerWallPage = (state = initialState, action) => {
@@ -53,6 +55,9 @@ const redicerWallPage = (state = initialState, action) => {
         postAddValue: action.newText
       }
     }
+    case SET_USER_PROFILE:{
+      return{...state, userProfile: action.profile}
+    }
     default:
       return state
   }
@@ -67,5 +72,6 @@ export const updateAddPostValueActionCreate = (text) => ({
   type: UPDATE_ADD_POST_VALUE,
   newText: text
 })
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export default redicerWallPage

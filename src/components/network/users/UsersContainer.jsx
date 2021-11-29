@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { followedAC, setUsers, unfollowedAC, setTotalCountUsersAC, setCurrentPageAC, setIsLoaderAC} from "../../../redux/reducerNetwork";
+import { onFollowed, setUsers, onUnfollowed, setTotalCountUsers, setCurrentPage, setIsLoader} from "../../../redux/reducerNetwork";
 import * as axios from 'axios'
 import Users from './Users';
 import Preloader from '../../common/preloader/Preloader';
@@ -27,13 +27,7 @@ class UsersContainerAPI extends React.Component {
   render(){
     return <>
     {this.props.isLoader ? <Preloader/> : null}
-    <Users users={this.props.users}
-                  onFollowed={this.props.onFollowed}
-                  onUnfollowed={this.props.onUnfollowed}
-                  totalUsersCount={this.props.totalUsersCount}
-                  usersPage={this.props.usersPage}
-                  onSetCurrentPage={this.onSetCurrentPage}
-                  currentPage={this.props.currentPage}/>
+    <Users {...this.props} onSetCurrentPage={this.onSetCurrentPage}/>
     </>
   }
 }
@@ -45,15 +39,8 @@ const mapStateToProps = (state) =>({
   currentPage: state.networkPage.currentPage,
   isLoader: state.networkPage.isLoader
 })
-const mapDispatchToProps = (dispatch) => ({
-  onFollowed: (userid)=> dispatch(followedAC(userid)),
-  onUnfollowed: (userid)=> dispatch(unfollowedAC(userid)),
-  setUsers: (users)=> dispatch(setUsers(users)),
-  setTotalCountUsers: (totalCount) => dispatch(setTotalCountUsersAC(totalCount)),
-  setCurrentPage: (currentPage) => dispatch(setCurrentPageAC(currentPage)),
-  setIsLoader: (isLoader)=> dispatch(setIsLoaderAC(isLoader))
-})
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersContainerAPI)
+const UsersContainer = connect(mapStateToProps, 
+  {setUsers, setTotalCountUsers, setCurrentPage, setIsLoader, onUnfollowed, onFollowed})(UsersContainerAPI)
 
 export default UsersContainer

@@ -1,4 +1,4 @@
-.userItem{
+a.userItem{
   width: 32%;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,8 @@
   transition: .5s;
   overflow: hidden;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .userItem:hover{
@@ -56,20 +58,24 @@
   color: rgb(174, 174, 174);
 }
 
-button{
+.userItem button{
   width: 90%;
   margin-bottom: 15px;
   border: 2px solid #0671A8;
+  background: #0671A8;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  transition: .5s;
+  cursor: pointer;
 }
 
 button.userItem__unfollow{
   border: 2px solid #0671A8;
   background: white;
   color: #0671A8;
-}
-
-button.userItem__follow{
-  width: 90%;
-  margin-bottom: 15px;
-  border: 2px solid #0671A8;
+  transition: .5s;
 }

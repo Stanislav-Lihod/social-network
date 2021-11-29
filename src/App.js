@@ -5,6 +5,7 @@ import Wall from './components/wall/Wall';
 import Message from './components/message/Message';
 import { Route } from 'react-router-dom'
 import Network from './components/network/Network';
+import UserProfileContainer from './components/userprofile/UserProfileContainer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path='/wall' render = {()=>(<Wall/>)} />
             <Route path='/message' render={()=>(<Message/>)} />
             <Route path='/network' render={()=>(<Network/>)} />
+            <Route path='/profile/:userId?' render={()=>(<UserProfileContainer/>)} />
           </div>
           <Aside />
         </div>

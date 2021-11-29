@@ -72,27 +72,27 @@ export const setUsers = (users) => ({
   users
 })
 
-export const followedAC = (userid) => ({
+export const onFollowed = (userid) => ({
   type: FOLLOWED,
   userid
 })
 
-export const unfollowedAC = (userid) => ({
+export const onUnfollowed = (userid) => ({
   type: UNFOLLOWED,
   userid
 })
 
-export const setTotalCountUsersAC = (totalCount) => ({
+export const setTotalCountUsers = (totalCount) => ({
   type: SET_TOTAL_COUNT_USERS,
   totalCount
 })
 
-export const setCurrentPageAC = (currentPage) => ({
+export const setCurrentPage = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage
 })
 
-export const setIsLoaderAC = (isLoader) =>({
+export const setIsLoader = (isLoader) =>({
   type: SET_ISLOADER,
   isLoader
 })

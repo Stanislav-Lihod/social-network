@@ -13,7 +13,7 @@ const Users = (props) =>{
   return (
     <div>
       <div className={stl.users}>{users}</div>
-      {pages.map(page=><span onClick={()=>{props.onSetCurrentPage(page)}} className={props.currentPage === page && stl.active}>{page}</span>)}
+      <div className={stl.numberPage}>{pages.map(page=><span onClick={()=>{props.onSetCurrentPage(page)}} className={props.currentPage === page && stl.active}>{page}</span>)}</div>
     </div>
   )
 }
