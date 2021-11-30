@@ -3,7 +3,8 @@ const FOLLOWED = 'FOLLOWED',
   SET_USERS = 'SET_USERS',
   SET_TOTAL_COUNT_USERS = 'SET_TOTAL_COUNT_USERS',
   SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
-  SET_ISLOADER = 'SET_ISLOADER'
+  SET_ISLOADER = 'SET_ISLOADER',
+  TOGGLE_IS_FOLLOWING_PROPGRESS = 'TOGGLE_IS_FOLLOWING_PROPGRESS'
 
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
   usersPage: 12,
   totalUsersCount: 0,
   currentPage: 1,
-  isLoader: true
+  isLoader: true,
+  followingInProgress: false
 }
 
 const reducerNetwork = (state = initialState, action) => {
@@ -62,39 +64,22 @@ const reducerNetwork = (state = initialState, action) => {
         ...state,
         isLoader: action.isLoader
       }
+    case TOGGLE_IS_FOLLOWING_PROPGRESS:
+      return{
+        ...state,
+        followingInProgress : action.isFollowing
+      }
     default:
       return state
   }
 }
 
-export const setUsers = (users) => ({
-  type: SET_USERS,
-  users
-})
-
-export const onFollowed = (userid) => ({
-  type: FOLLOWED,
-  userid
-})
-
-export const onUnfollowed = (userid) => ({
-  type: UNFOLLOWED,
-  userid
-})
-
-export const setTotalCountUsers = (totalCount) => ({
-  type: SET_TOTAL_COUNT_USERS,
-  totalCount
-})
-
-export const setCurrentPage = (currentPage) => ({
-  type: SET_CURRENT_PAGE,
-  currentPage
-})
-
-export const setIsLoader = (isLoader) =>({
-  type: SET_ISLOADER,
-  isLoader
-})
+export const setUsers = (users) => ({ type: SET_USERS,  users})
+export const onFollowed = (userid) => ({ type: FOLLOWED,  userid})
+export const onUnfollowed = (userid) => ({ type: UNFOLLOWED,  userid})
+export const setTotalCountUsers = (totalCount) => ({ type: SET_TOTAL_COUNT_USERS,  totalCount})
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE,  currentPage})
+export const setIsLoader = (isLoader) =>({ type: SET_ISLOADER,  isLoader})
+export const toggleIsFollowing = (isFollowing) => ({ type: TOGGLE_IS_FOLLOWING_PROPGRESS, isFollowing})
 
 export default reducerNetwork

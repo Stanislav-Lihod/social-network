@@ -17,8 +17,17 @@ const User = (props) => {
         </div>
       </NavLink>
       {props.followed ? 
-      <button className={stl.userItem__unfollow} onClick={()=>{API.unFollowed(props.id).then(data=> {!data.resultCode && props.onFollowed(props.id)})}}>Unfollow</button>: 
-      <button className={stl.userItem__follow} onClick={()=>{API.followed(props.id).then(data=>{!data.resultCode && props.onUnfollowed(props.id)})}}>Follow</button> }      
+      <button disabled={props.followingInProgress} className={stl.userItem__unfollow} onClick={()=>{ props.toggleIsFollowing(true)
+
+        console.log(props.followingInProgress);
+        API.unFollowed(props.id).then(data=> {!data.resultCode && props.onFollowed(props.id)})
+        props.toggleIsFollowing(false)
+        console.log(props.followingInProgress);
+        }}>Unfollow</button>: 
+      <button disabled={props.followingInProgress} className={stl.userItem__follow} onClick={()=>{  props.toggleIsFollowing(true)
+        API.followed(props.id).then(data=>{!data.resultCode && props.onUnfollowed(props.id)})
+        props.toggleIsFollowing(false)
+        }}>Follow</button> }      
     </div>
   )
 }
