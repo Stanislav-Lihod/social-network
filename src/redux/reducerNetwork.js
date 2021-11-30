@@ -8,7 +8,7 @@ const FOLLOWED = 'FOLLOWED',
 
 const initialState = {
   users: [],
-  usersPage: 9,
+  usersPage: 12,
   totalUsersCount: 0,
   currentPage: 1,
   isLoader: true

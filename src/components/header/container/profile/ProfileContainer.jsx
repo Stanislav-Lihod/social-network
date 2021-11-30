@@ -3,16 +3,11 @@ import axios from "axios";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { setAuthUserData } from '../../../../redux/auth-reducer'
+import { API } from "../../../../api/api";
 
 class ProfileContainerAPI extends React.Component{
   componentDidMount(){
-    axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true })
-    .then(response => {
-      if (response.data.resultCode === 0){
-        const {id, login, email} = response.data.data
-        this.props.setAuthUserData(id, login, email)
-      }
-      })
+    API.login().then(data => {!data.resultCode && this.props.setAuthUserData(data.data.id, data.data.login, data.data.email)})
   }
 
   render(){
