@@ -19,7 +19,7 @@ const UserProfile = (props) => {
             <div className={stl.profileText__description}>{user.aboutMe}</div>
           </div>
           <div className={stl.profile__social}>      
-            {socialLinks.map(link=> <a href={link} target="_blank">{link}</a>)}    
+            {socialLinks.map(link=> <a href={link} rel="noreferrer">{link}</a>)}    
           </div>
         </div>
         

@@ -9,7 +9,7 @@ import Preloader from '../../common/preloader/Preloader';
 class UsersContainerAPI extends React.Component {
   componentDidMount(){
     this.props.setIsLoader(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersPage}&page=${this.props.currentPage}`).then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersPage}&page=${this.props.currentPage}`, {withCredentials: true, headers: {'API-KEY': '900e3c80-5f8e-41e6-a8c9-521c845786f7'}}).then(response => {
         this.props.setIsLoader(false)
         this.props.setUsers(response.data.items)
         this.props.setTotalCountUsers(response.data.totalCount)
@@ -18,7 +18,7 @@ class UsersContainerAPI extends React.Component {
 
   onSetCurrentPage = (page) => {
     this.props.setIsLoader(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersPage}&page=${page}`).then(response => {
+    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersPage}&page=${page}`, {withCredentials: true, headers: {'API-KEY': '900e3c80-5f8e-41e6-a8c9-521c845786f7'}}).then(response => {
       this.props.setUsers(response.data.items)
       this.props.setIsLoader(false)
     })
