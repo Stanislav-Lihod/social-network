@@ -1,16 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
 import UserProfile from "./UserProfile"
-import {setUserProfile} from '../../redux/reducerWallPage'
+import {getUserProfile} from '../../redux/reducerWallPage'
 import { withRouter } from "react-router"
-import { API } from "../../api/api"
 
 class UserProfileContainerAPI extends React.Component{
   componentDidMount(){
     const userId = this.props.match.params.userId
-    API.getUserProfile(userId).then(data=>{
-      this.props.setUserProfile(data)
-    })
+    this.props.getUserProfile(userId)
   }
   render(){
     return<div><UserProfile profile={this.props.profile}/></div>
@@ -23,4 +20,4 @@ const mapStateToProps = (state) => ({
 
 const WithRouterUserProfile = withRouter(UserProfileContainerAPI)
 
-export default connect (mapStateToProps, {setUserProfile})(WithRouterUserProfile)
+export default connect (mapStateToProps, {getUserProfile})(WithRouterUserProfile)

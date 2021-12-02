@@ -1,13 +1,10 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { setAuthUserData } from '../../../../redux/auth-reducer'
-import { API } from "../../../../api/api";
+import { authenticator } from '../../../../redux/auth-reducer'
 
 class ProfileContainerAPI extends React.Component{
-  componentDidMount(){
-    API.login().then(data => {!data.resultCode && this.props.setAuthUserData(data.data.id, data.data.login, data.data.email)})
-  }
+  componentDidMount(){ this.props.authenticator() }
 
   render(){
     return(
@@ -22,4 +19,4 @@ const mapStateToProps = (state)=>({
   allViews: state.auth.allViews,
   todayViews: state.auth.todayViews
 })
-export default connect(mapStateToProps,{setAuthUserData})(ProfileContainerAPI);
+export default connect(mapStateToProps,{authenticator})(ProfileContainerAPI);
