@@ -1,5 +1,5 @@
 import stl from "./post.module.css"
-import logo from "../../../img/7h_xRpycDaI.jpg"
+import logo from "../../../img/users/notUser.png"
 import Assesment from "./Assesment/Assesment"
 
 const Post = (props) => {
@@ -8,9 +8,9 @@ const Post = (props) => {
       <div className='upButton'></div>
       <div className={stl.post}>
         <div className={stl.postProfile}>
-          <img src={logo} alt="Logo" />
+          <img src={!props.logo ? logo : props.logo} alt="Logo" />
           <div className={stl.postProfile__info}>
-            <div className={stl.postProfile__name}>{props.name}</div>
+            <div className={stl.postProfile__name}>{!props.name ? 'Stanislaw Lihodievski' : props.name}</div>
             <div className={stl.postProfile__prof}>{props.prof}</div>
           </div>
         </div>

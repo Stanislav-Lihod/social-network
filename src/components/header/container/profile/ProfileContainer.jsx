@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import Profile from "./Profile";
 import { connect } from "react-redux";
 import { setAuthUserData } from '../../../../redux/auth-reducer'
@@ -12,7 +11,7 @@ class ProfileContainerAPI extends React.Component{
 
   render(){
     return(
-      this.props.isAuth ? <Profile {...this.props}/> : <a href='https://social-network.samuraijs.com/login' target="_blank">SIGN IN</a>
+      this.props.isAuth ? <Profile {...this.props}/> : <a href='https://social-network.samuraijs.com/login' target="_blank" rel="noreferrer">SIGN IN</a>
     )
   }
 }
