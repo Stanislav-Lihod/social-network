@@ -1,3 +1,5 @@
+import { API } from "../api/api"
+
 const ADD_POST = 'ADD-POST',
   UPDATE_ADD_POST_VALUE = 'UPDATE-ADD-POST-VALUE',
   SET_USER_PROFILE = 'SET_USER_PROFILE'
@@ -73,5 +75,13 @@ export const updateAddPostValueActionCreate = (text) => ({
   newText: text
 })
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+
+export const getUserProfile = (userId) =>{
+  return (dispatch) => {
+    API.getUserProfile(userId).then(data=>{
+      dispatch(setUserProfile(data))
+    })
+  }
+}
 
 export default redicerWallPage

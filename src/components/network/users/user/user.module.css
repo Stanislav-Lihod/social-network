@@ -79,6 +79,10 @@ a.userItemLinks{
   cursor: pointer;
 }
 
+.userItem button:disabled{
+  opacity: 0.5;
+}
+
 button.userItem__unfollow{
   border: 2px solid #0671A8;
   background: white;

@@ -2,6 +2,7 @@ import Preloader from '../common/preloader/Preloader'
 import PostsContainer from '../wall/Post/PostsContainer';
 import stl from './userProfile.module.css'
 import notLogo from "../../img/users/notUser.png"
+import NewPostContainer from '../wall/NewPost/NewPostContainer';
 
 const UserProfile = (props) => {
   const user = props.profile
@@ -19,13 +20,14 @@ const UserProfile = (props) => {
             <div className={stl.profileText__description}>{user.aboutMe}</div>
           </div>
           <div className={stl.profile__social}>      
-            {socialLinks.map(link=> <a href={link} rel="noreferrer">{link}</a>)}    
+            {socialLinks.map(link=> <a href={link} target="_blank" rel="noreferrer">{link}</a>)}    
           </div>
         </div>
         
         <img src={user.photos.large != null ?user.photos.large : notLogo} alt="logo" className={stl.profileLogo} />
       </div>
-      {/* <PostsContainer /> */}
+      <NewPostContainer/> 
+      <PostsContainer/>
     </div>
 
 

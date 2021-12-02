@@ -1,28 +1,17 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { onFollowed, setUsers, onUnfollowed, setTotalCountUsers, setCurrentPage, setIsLoader} from "../../../redux/reducerNetwork";
-import * as axios from 'axios'
+import { followedThunk, unfollowedThunk, setCurrentPage, toggleIsFollowing, getUsersThunkCreator} from "../../../redux/reducerNetwork";
 import Users from './Users';
 import Preloader from '../../common/preloader/Preloader';
 
 
 class UsersContainerAPI extends React.Component {
   componentDidMount(){
-    this.props.setIsLoader(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersPage}&page=${this.props.currentPage}`, {withCredentials: true, headers: {'API-KEY': '900e3c80-5f8e-41e6-a8c9-521c845786f7'}}).then(response => {
-        this.props.setIsLoader(false)
-        this.props.setUsers(response.data.items)
-        this.props.setTotalCountUsers(response.data.totalCount)
-      })
+    this.props.getUsersThunkCreator(this.props.usersPage, this.props.currentPage)
   }
 
   onSetCurrentPage = (page) => {
-    this.props.setIsLoader(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.usersPage}&page=${page}`, {withCredentials: true, headers: {'API-KEY': '900e3c80-5f8e-41e6-a8c9-521c845786f7'}}).then(response => {
-      this.props.setUsers(response.data.items)
-      this.props.setIsLoader(false)
-    })
-    this.props.setCurrentPage(page)
+    this.props.getUsersThunkCreator(this.props.usersPage, page)
   }
   render(){
     return <>
@@ -37,10 +26,11 @@ const mapStateToProps = (state) =>({
   usersPage: state.networkPage.usersPage,
   totalUsersCount: state.networkPage.totalUsersCount,
   currentPage: state.networkPage.currentPage,
-  isLoader: state.networkPage.isLoader
+  isLoader: state.networkPage.isLoader,
+  followingInProgress: state.networkPage.followingInProgress
 })
 
 const UsersContainer = connect(mapStateToProps, 
-  {setUsers, setTotalCountUsers, setCurrentPage, setIsLoader, onUnfollowed, onFollowed})(UsersContainerAPI)
+  {setCurrentPage, unfollowedThunk, followedThunk, toggleIsFollowing, getUsersThunkCreator})(UsersContainerAPI)
 
 export default UsersContainer
