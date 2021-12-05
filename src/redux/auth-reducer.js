@@ -5,9 +5,9 @@ import {
 const SET_USER_DATA = 'SET_USER_DATA'
 
 const initialState = {
-  id: null,
-  email: null,
+  userId: null,
   login: null,
+  email: null,  
   isAuth: false,
   allViews: 200,
   todayViews: 33

@@ -1,5 +1,6 @@
 import logo from "../../../img/7h_xRpycDaI.jpg"
 import stl from "./profile.module.css"
+import ProfileStatus from "./ProfileStatus"
 
 const Profile = (props) => {
   return (
@@ -7,7 +8,7 @@ const Profile = (props) => {
       <div className={stl.profileBg}></div>
       <div className={stl.profileText}>
         <div className={stl.profileText__name}>{props.name}</div>
-        <div className={stl.profileText__profession}>{props.profession}</div>
+        <ProfileStatus status="Front End Developer"/>
       </div>
       <img src={logo} alt="logo" className={stl.profileLogo} />
     </div>

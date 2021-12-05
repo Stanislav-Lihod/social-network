@@ -26,10 +26,11 @@
 .profileText__name {
   font-weight: 500;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .profileText__profession {
+  margin-top: 9px;
   font-weight: 300;
   color: rgba(128, 124, 124, 1);
 }
@@ -44,4 +45,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.profile input{
+  margin-right: 0;
 }

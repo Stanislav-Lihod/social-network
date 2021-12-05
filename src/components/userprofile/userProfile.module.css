@@ -38,6 +38,11 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
+.profile__social{  
+  max-width: 300px;
+  overflow: hidden;
+}
+
 .profile__social a{
   display: block;
   color: black;
