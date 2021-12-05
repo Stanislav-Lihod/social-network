@@ -1,0 +1,36 @@
+.nextPage {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 10px;
+  background: #0671A8;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  border: 0;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.nextPage:hover{
+  transform: scale(1.02);
+  transition: .3s;
+}
+
+.local{
+  margin-bottom: 20px;
+}
+
+.local span{
+  margin: 0 5px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.local span:hover{
+  text-shadow: 1px 1px 8px rgb(41, 41, 41);
+  transition: .4s;
+}

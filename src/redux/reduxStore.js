@@ -5,6 +5,7 @@ import reducerNavLink from "./reducerNavLink"
 import reducerNetwork from "./reducerNetwork"
 import redicerWallPage from "./reducerWallPage"
 import thunkMiddleware from 'redux-thunk'
+import reducerFeed from "./reducerFeed"
 
 const reducers = combineReducers ({
   messagePage: reducerMessagePage,
@@ -12,6 +13,7 @@ const reducers = combineReducers ({
   navLinks: reducerNavLink,
   networkPage: reducerNetwork,
   auth: authReducer,
+  feed: reducerFeed
 })
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware))
