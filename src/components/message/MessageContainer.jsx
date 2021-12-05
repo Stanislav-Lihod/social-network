@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux";
-import { Redirect } from 'react-router';
+import { compose } from 'redux';
+import { withAuthComponent } from '../hoc/withAuthRedirect';
 import Message from './Message';
 
 
@@ -8,15 +9,12 @@ class MessageContainerClass extends React.Component {
   componentDidMount() {}
 
   render() {    
-    if(!this.props.isAuth) return <Redirect to='/login' />
     return <Message />
   }
 }
+const mapStateToProps = (state) => ({})
 
-const mapStateToProps = (state) => ({
-  isAuth: state.auth.isAuth
-})
-
-const MessageContainer = connect(mapStateToProps, { })(MessageContainerClass)
-
-export default MessageContainer
+export default compose(
+  connect(mapStateToProps),
+  withAuthComponent
+)(MessageContainerClass)
