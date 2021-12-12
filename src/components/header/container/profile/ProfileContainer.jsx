@@ -1,15 +1,17 @@
 import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { authenticator } from '../../../../redux/auth-reducer'
+import { logOut} from '../../../../redux/auth-reducer'
 import { NavLink } from "react-router-dom";
+import stl from './profile.module.css';
 
 class ProfileContainerAPI extends React.Component{
-  componentDidMount(){ this.props.authenticator() }
 
   render(){
     return(
-      this.props.isAuth ? <Profile {...this.props}/> : <NavLink to={'/login'}>SIGN IN</NavLink>
+      this.props.isAuth 
+      ? <div><Profile {...this.props}/> <button onClick={this.props.logOut}>logOut</button></div> 
+      : <NavLink to={'/login'} className={stl.signIn}>SIGN IN</NavLink>
     )
   }
 }
@@ -21,4 +23,4 @@ const mapStateToProps = (state)=>({
   todayViews: state.auth.todayViews,
   userId: state.auth.userId
 })
-export default connect(mapStateToProps,{authenticator})(ProfileContainerAPI);
+export default connect(mapStateToProps,{logOut})(ProfileContainerAPI);

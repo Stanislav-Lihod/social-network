@@ -6,6 +6,8 @@ import reducerNetwork from "./reducerNetwork"
 import redicerWallPage from "./reducerWallPage"
 import thunkMiddleware from 'redux-thunk'
 import reducerFeed from "./reducerFeed"
+import {reducer as formReducer} from 'redux-form';
+import appReducer from "./app-reducer"
 
 const reducers = combineReducers ({
   messagePage: reducerMessagePage,
@@ -13,7 +15,9 @@ const reducers = combineReducers ({
   navLinks: reducerNavLink,
   networkPage: reducerNetwork,
   auth: authReducer,
-  feed: reducerFeed
+  feed: reducerFeed,
+  form: formReducer,
+  app: appReducer,
 })
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware))

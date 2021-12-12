@@ -1,4 +1,4 @@
-import { API } from "../api/api"
+import { articleAPI } from "../api/api"
 
 const SET_ARTICLES = 'SET_ARTICLES',
   SET_TOTAL_COUNT = 'SET_TOTAL_COUNT',
@@ -65,7 +65,7 @@ export const setNextPage = () => ({type: SET_NEXT_PAGE})
 export const getArticles = (locale, nextPage) =>{
   return (dispatch) =>{
     dispatch(setIsLoader(true))
-    API.getArticles(locale,'technology', nextPage).then(data => {
+    articleAPI.getArticles(locale,'technology', nextPage).then(data => {
       dispatch(setTotalCount(data.totalResults))
       dispatch(setArticles(data.articles))
       dispatch(setIsLoader(false))

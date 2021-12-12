@@ -8,8 +8,7 @@ a.profile{
 }
 
 a.profile:hover{
-  transition: .3s;
-  transform: scale(1.05);
+  text-decoration: underline;
 }
 
 .profileLogo {
@@ -40,4 +39,23 @@ a.profile:hover{
 .profileText__views span {
   font-weight: 500;
   color: rgba(29, 144, 89, 1);
+}
+
+.signIn{
+  font-size: 12px;
+  text-transform: uppercase;
+  background: #0671A8;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  border: 0;
+  transition: .3s;
+  text-decoration: none;
+}
+
+.signIn:hover{
+  transform: scale(1.05);
+  transition: .3s;
 }

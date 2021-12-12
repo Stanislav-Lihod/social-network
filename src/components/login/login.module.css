@@ -1,0 +1,86 @@
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.formLogin input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 0 20px 0;
+
+}
+
+.formLogin button {
+  width: 100%;
+  margin-top: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: #0671A8;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  border: 0;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.formLogin button:hover {
+  transform: scale(1.01);
+  box-shadow: 1px 1px 10px rgb(174 172 172);
+}
+
+.checkRemember {
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkRemember>input {
+  flex-grow: 0;
+  width: auto;
+  margin-bottom: 0;
+  margin-right: 20px;
+  transform: scale(1.3) translateX(3px) translateY(1px);
+}
+
+.descriptionLogin{
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.descriptionLogin p{
+margin-bottom: 15px;
+}
+
+.descriptionLogin span{
+  font-weight: 700;
+}
+
+.formLogin .error{
+  padding: 10px;
+  border: 2px solid red;
+  width: 100%;
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+  transition: .5s;
+  border-radius: 4px;
+  opacity: 0;
+}
+
+.formLogin .errorTrue{
+  opacity: 1;
+  transition: 1s;
+}

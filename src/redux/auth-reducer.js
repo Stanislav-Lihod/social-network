@@ -1,13 +1,13 @@
-import {
-  API
-} from "../api/api"
+import { stopSubmit } from "redux-form"
+import { authAPI } from "../api/api"
+import { messages } from "../img/imagesNav"
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
 const initialState = {
   userId: null,
   login: null,
-  email: null,  
+  email: null,
   isAuth: false,
   allViews: 200,
   todayViews: 33
@@ -19,29 +19,41 @@ const authReducer = (state = initialState, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        ...action.data,
-          isAuth: true
+        ...action.payload,
       }
-      default:
-        return state
+    default:
+      return state
   }
 }
 
-export const setAuthUserData = (userId, login, email) => ({
+export const setAuthUserData = (userId, login, email, isAuth) => ({
   type: SET_USER_DATA,
-  data: {
+  payload: {
     userId,
     login,
-    email
+    email,
+    isAuth
   }
 })
 
-export const authenticator = () => {
-  return (dispatch) => {
-    API.login().then(data => {
-      !data.resultCode && dispatch(setAuthUserData(data.data.id, data.data.login, data.data.email))
-    })
-  }
+export const getAuthUserData = () => (dispatch) => {
+  return authAPI.me().then(data => {
+    !data.resultCode && dispatch(setAuthUserData(data.data.id, data.data.login, data.data.email, true))
+  })
 }
+
+
+export const logIn = (email, password) => (dispatch) => {
+  authAPI.logIn(email, password).then(data => {
+    data.resultCode === 0 ? dispatch(getAuthUserData()) : dispatch(stopSubmit('login', { _error: data.messages }))
+  })
+}
+
+export const logOut = () => (dispatch) => {
+  authAPI.logOut().then(data => {
+    if (data.resultCode === 0) dispatch(setAuthUserData(null, null, null, false))
+  })
+}
+
 
 export default authReducer
