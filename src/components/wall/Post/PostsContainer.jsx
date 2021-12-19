@@ -1,10 +1,17 @@
 import { connect } from "react-redux"
-import Posts from "./Posts"
+import React from "react"
+import Post from "./Post"
 
-const mapStateToProps = (state) => { return { 
+class Posts extends React.Component {
+  render() {
+    const renderPost = this.props.posts.map(post => <Post key={post.id} name={this.props.profile.fullName} logo={this.props.profile.photos.small} prof={this.props.profile.aboutMe} like={post.likesValue} comment={post.commentValue} post={post.post} />)
+    return (<div>{renderPost}</div>)
+  }
+}
+
+const mapStateToProps = (state) => ({  
   posts: state.wallPage.posts, 
-  profile: state.wallPage.userProfile } }
-const mapDispatchToProps = (dispatch) => {return { }}
-const PostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts)
+  profile: state.wallPage.userProfile 
+})
 
-export default PostsContainer
+export default connect (mapStateToProps)(Posts)

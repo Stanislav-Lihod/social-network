@@ -1,8 +1,8 @@
 import { stopSubmit } from "redux-form"
-import { authAPI } from "../api/api"
-import { messages } from "../img/imagesNav"
+import { authAPI, profileAPI } from "../api/api"
 
-const SET_USER_DATA = 'SET_USER_DATA'
+const SET_USER_DATA = 'SET_USER_DATA',
+      SET_STATUS = 'SET_STATUS'
 
 const initialState = {
   userId: null,
@@ -10,7 +10,8 @@ const initialState = {
   email: null,
   isAuth: false,
   allViews: 200,
-  todayViews: 33
+  todayViews: 33,
+  status : '',
 }
 
 
@@ -20,6 +21,11 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.payload,
+      }
+    case SET_STATUS:
+      return{
+        ...state,
+        status: action.status
       }
     default:
       return state
@@ -35,6 +41,23 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({
     isAuth
   }
 })
+
+export const setStatus = (status) =>({type: SET_STATUS, status})
+
+
+export const updateStatus = (status) => (dispatch) =>{
+  return profileAPI.updateStatus(status).then(response=>{
+    if (response.data.resultCode === 0){
+      dispatch(setStatus(status))
+    }
+  })
+}
+
+export const getUserStatus = () => (dispatch) =>{
+  return profileAPI.getStatus().then(response => {
+    dispatch(setStatus(response.data))
+  })
+}
 
 export const getAuthUserData = () => (dispatch) => {
   return authAPI.me().then(data => {

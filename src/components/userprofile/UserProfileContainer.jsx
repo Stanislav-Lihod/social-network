@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import UserProfile from "./UserProfile"
 import { getUserProfile } from '../../redux/reducerWallPage'
 import { withRouter } from "react-router"
-import { withAuthComponent } from "../hoc/withAuthRedirect"
 import { compose } from "redux"
 
 class UserProfileContainerAPI extends React.Component {

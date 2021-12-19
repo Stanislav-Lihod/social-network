@@ -22,7 +22,7 @@ const Post = (props) => {
           <Assesment icon='far fa-thumbs-up' value={props.like}/>
           <Assesment icon='far fa-comment' value={props.comment}/>
         </div>
-        <div className={stl.bottomButton__share}><i class="fas fa-share-alt"></i>Share</div>
+        <div className={stl.bottomButton__share}><i className="fas fa-share-alt"></i>Share</div>
 
       </div>
     </div>

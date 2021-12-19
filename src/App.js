@@ -1,5 +1,4 @@
 import './App.css';
-import Aside from './components/aside/Aside';
 import Header from './components/header/Header';
 import { Route } from 'react-router-dom'
 import Network from './components/network/Network';
@@ -13,6 +12,7 @@ import { connect } from 'react-redux';
 import { initializationApp } from './redux/app-reducer';
 import { withRouter } from "react-router"
 import Preloader from './components/common/preloader/Preloader';
+import Aside from './components/aside/Aside';
 
 class App extends React.Component {  
   componentDidMount(){ this.props.initializationApp() }
@@ -29,7 +29,7 @@ class App extends React.Component {
             <Route path='/profile/:userId?' render={() => (<UserProfileContainer />)} />
             <Route path='/login' render={() => (<LoginContainer />)} />
           </div>
-          <Aside />
+          <Aside/>
         </div>
       </div>
     );

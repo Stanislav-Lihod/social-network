@@ -18,6 +18,11 @@ export const API = {
   followed (id){return instance.post(`follow/${id}`).then(response => response.data)}
 } 
 
+export const profileAPI = {
+  getStatus (userId = 20768){return instance.get(`profile/status/${userId}`)},
+  updateStatus (status){return instance.put(`profile/status`, {status})}
+}
+
 export const articleAPI = {
   getArticles (location, category, page){
     return articles.get(`?language=${location}&category=${category}&sortBy=publishedAt&apiKey=2fb92591790b46f29ca6af2c4b7d53df&page=${page}&pageSize=10`)

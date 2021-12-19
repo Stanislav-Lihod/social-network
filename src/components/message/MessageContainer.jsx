@@ -6,8 +6,6 @@ import Message from './Message';
 
 
 class MessageContainerClass extends React.Component {
-  componentDidMount() {}
-
   render() {    
     return <Message />
   }
