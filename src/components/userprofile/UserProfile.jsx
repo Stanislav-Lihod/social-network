@@ -3,10 +3,11 @@ import PostsContainer from '../wall/Post/PostsContainer';
 import stl from './userProfile.module.css'
 import notLogo from "../../img/users/notUser.png"
 import NewPostContainer from '../wall/NewPost/NewPostContainer';
+import AddPhoto from './AddPhoto';
 
 const UserProfile = (props) => {
   const user = props.profile
-  if (!props.profile) return <Preloader />
+  if (!user) return <Preloader />
   const socialLinks = []
   for (let contact in user.contacts) if (user.contacts[contact]) socialLinks.push(user.contacts[contact])
 
@@ -22,9 +23,11 @@ const UserProfile = (props) => {
           <div className={stl.profile__social}>      
             {socialLinks.map(link=> <a href={link} target="_blank" rel="noreferrer">{link}</a>)}    
           </div>
+        </div>        
+        <div className={stl.profileLogo}>
+          <img src={user.photos.large ? user.photos.large : notLogo} alt="logo"/>           
+          {props.isOwner && <AddPhoto uploadPhoto={props.uploadPhoto}/>}          
         </div>
-        
-        <img src={user.photos.large != null ?user.photos.large : notLogo} alt="logo" className={stl.profileLogo} />
       </div>
       <NewPostContainer/> 
       <PostsContainer/>

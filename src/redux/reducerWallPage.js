@@ -1,8 +1,9 @@
-import { API } from "../api/api"
+import { API, profileAPI } from "../api/api"
 
 const ADD_POST = 'ADD-POST',
   UPDATE_ADD_POST_VALUE = 'UPDATE-ADD-POST-VALUE',
-  SET_USER_PROFILE = 'SET_USER_PROFILE'
+  SET_USER_PROFILE = 'SET_USER_PROFILE',
+  UPDATE_PHOTO = 'UPDATE_PHOTO'
 
 const initialState = {
   posts: [{
@@ -58,7 +59,16 @@ const redicerWallPage = (state = initialState, action) => {
       }
     }
     case SET_USER_PROFILE:{
-      return{...state, userProfile: action.profile}
+      return {
+        ...state,
+        userProfile: action.profile
+      }
+    }
+    case UPDATE_PHOTO:{
+      return {
+        ...state,
+        userProfile: {...state.userProfile, photos: action.photos}
+      }
     }
     default:
       return state
@@ -67,19 +77,23 @@ const redicerWallPage = (state = initialState, action) => {
 
 
 
-export const addPostActionCreate = () => ({
-  type: ADD_POST
-})
-export const updateAddPostValueActionCreate = (text) => ({
-  type: UPDATE_ADD_POST_VALUE,
-  newText: text
-})
+export const addPostActionCreate = () => ({  type: ADD_POST})
+export const updateAddPostValueActionCreate = (text) => ({  type: UPDATE_ADD_POST_VALUE,  newText: text})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const updatePhoto = (photos) => ({type: UPDATE_PHOTO, photos})
 
 export const getUserProfile = (userId) =>{
   return (dispatch) => {
     API.getUserProfile(userId).then(data=>{
       dispatch(setUserProfile(data))
+    })
+  }
+}
+
+export const uploadPhoto = (file) =>{
+  return(dispatch) =>{
+    profileAPI.uploadPhoto(file).then(data =>{
+      data.resultCode === 0 && dispatch(updatePhoto(data.data.photos))
     })
   }
 }

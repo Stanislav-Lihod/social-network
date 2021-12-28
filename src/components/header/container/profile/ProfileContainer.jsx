@@ -10,7 +10,7 @@ class ProfileContainerAPI extends React.Component{
   render(){
     return(
       this.props.isAuth 
-      ? <div><Profile {...this.props}/> <button onClick={this.props.logOut}>logOut</button></div> 
+      ? <div className={stl.profileLogout}><Profile {...this.props}/> <button onClick={this.props.logOut}>logOut</button></div> 
       : <NavLink to={'/login'} className={stl.signIn}>SIGN IN</NavLink>
     )
   }
@@ -21,6 +21,6 @@ const mapStateToProps = (state)=>({
   name: state.auth.login,
   allViews: state.auth.allViews,
   todayViews: state.auth.todayViews,
-  userId: state.auth.userId
+  userId: state.auth.userId,
 })
 export default connect(mapStateToProps,{logOut})(ProfileContainerAPI);

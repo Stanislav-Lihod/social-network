@@ -12,6 +12,7 @@ const initialState = {
   allViews: 200,
   todayViews: 33,
   status : '',
+  photos: null,
 }
 
 
